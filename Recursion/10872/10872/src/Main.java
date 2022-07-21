@@ -1,3 +1,5 @@
+//submitted answer to https://www.acmicpc.net/problem/10872
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +12,8 @@ public class Main {
     }
 
     public static int fact(int N) {
-        if(N <=1) return 1;
-        return N * fact(N-1);
+        if (N <= 1)
+            return 1;
+        return N * fact(N - 1);
     }
 }

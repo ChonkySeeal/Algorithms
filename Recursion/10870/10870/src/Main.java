@@ -1,3 +1,5 @@
+//submitted answer to https://www.acmicpc.net/problem/10870
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
