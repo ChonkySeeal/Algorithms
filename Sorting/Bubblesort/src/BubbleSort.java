@@ -21,12 +21,10 @@ public class BubbleSort {
     }
 
     public void bubbleSort() {
-        int out, in;
-
-        for (out = eElems - 1; out > 1; out--) {
-            for (in = 0; in < out; in++) {
-                if (a[in] > a[in + 1])
-                    swap(in, in + 1);
+        for (int i = eElems - 1; i > 1; i--) {
+            for (int j = 0; j < i; j++) {
+                if (a[j] > a[j + 1])
+                    swap(j, j + 1);
             }
         }
     }
