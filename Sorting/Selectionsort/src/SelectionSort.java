@@ -25,12 +25,10 @@ public class SelectionSort {
         int i, j, min;
         for (i = 0; i < eElems - 1; i++) {
             min = i;
-            for (j = i; j < eElems; j++) {
-                if (a[min] > a[j]) {
+            for (j = i; i < eElems; j++) {
+                if (a[min] > a[j])
                     min = j;
-                    swap(i, min);
-                }
-
+                swap(min, j);
             }
         }
     }
