@@ -1,33 +1,32 @@
 public class Stack {
-
     private int maxSize;
-    private long[] stackArray;
+    private int[] stack;
     private int top;
 
-    public Stack(int s) {
-        maxSize = s;
-        stackArray = new long[maxSize];
+    public Stack(int n) {
+        int maxSize = n;
+        stack = new int[maxSize];
         top = -1;
     }
 
-    public void push(long j) {
-        stackArray[++top] = j;
+    public void push(int n) {
+        stack[++top] = n;
     }
 
-    public long pop() {
-        return stackArray[top--];
+    public int pop() {
+        return stack[top--];
     }
 
-    public long peek() {
-        return stackArray[top];
+    public int peek() {
+        return stack[top];
     }
 
     public boolean isEmpty() {
-        return (top == -1);
+        return top != -1;
     }
 
     public boolean isFull() {
-        return (top == maxSize - 1);
+        return top == maxSize - 1;
     }
 
     public static void main(String[] args) throws Exception {
