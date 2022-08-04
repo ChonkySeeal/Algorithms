@@ -4,17 +4,13 @@ public class App {
     }
 
     public void selectionSort() {
-        int i,j,temp;
-        for(i=1;i<arr.length;i++) {
-            temp=arr[i];
-            j=i;
-            while(j>0&&temp<=arr[j]) {
-                arr[j] = arr[j-1]
-                --j;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int temp = i;
+            for (int j = i + 1; i < arr.length; j++) {
+                if (arr[temp] > arr[j])
+                    temp = j;
             }
-            arr[j] = temp;
-
-
+            swap(i, temp);
         }
     }
 }
