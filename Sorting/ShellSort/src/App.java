@@ -6,20 +6,19 @@ public class App {
     public void shellSort(int[] arr) {
         int i, j;
         int temp;
-        int h = 1;
-        while (h <= arr.length / 3)
-            h = h * 3 + 1;
-        while (h > 0) {
-            for (i = h; i < arr.length; i++) {
+        int l = 1;
+        while (l < arr.length / 3) {
+            l = l * 3 + 1;
+        }
+        while (l > 0) {
+            for (i = l; l < arr.length; i++) {
                 temp = arr[i];
                 j = i;
-                while (j > h - 1 && arr[j - h] >= temp) {
-                    arr[j] = arr[j - h];
-                    j -= h;
+                while (j > l - 1 && arr[j - l] >= temp) {
+                    arr[j] = arr[j - l];
+                    j -= l;
                 }
-                arr[j] = temp;
             }
-            h = (h - 1) / 3;
         }
     }
 }
