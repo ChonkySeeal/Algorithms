@@ -11,14 +11,16 @@ public class App {
             l = l * 3 + 1;
         }
         while (l > 0) {
-            for (i = l; l < arr.length; i++) {
+            for (i = l; i < arr.length; i++) {
                 temp = arr[i];
                 j = i;
-                while (j > l - 1 && arr[j - l] >= temp) {
+                while (j > l - 1 && arr[j] >= temp) {
                     arr[j] = arr[j - l];
                     j -= l;
                 }
+                arr[j] = temp;
             }
+            l = (l - 1) / 3;
         }
     }
 }
