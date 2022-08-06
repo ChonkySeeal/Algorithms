@@ -14,7 +14,7 @@ public class App {
             for (i = l; i < arr.length; i++) {
                 temp = arr[i];
                 j = i;
-                while (j > l - 1 && arr[j] >= temp) {
+                while (j > l - 1 && arr[j - l] >= temp) {
                     arr[j] = arr[j - l];
                     j -= l;
                 }
