@@ -17,7 +17,6 @@ public class QuickSort {
     static void printArray(int[] arr, int size) {
         for (int i = 0; i < size; i++)
             System.out.print(arr[i] + " ");
-
         System.out.println();
     }
 
@@ -34,15 +33,14 @@ public class QuickSort {
 
     static int partition(int[] arr, int left, int right) {
         int pivot = arr[right];
-        int i = (left - 1);
+        int i = left - 1;
         for (int j = left; j <= right - 1; j++) {
             if (arr[j] < pivot) {
                 i++;
-                swap(arr, i, j);
+                swap(arr, j, i);
             }
-
         }
-        swap(arr, i + 1, right);
-        return (i + 1);
+        swap(arr, i + 1, left);
+        return i + 1;
     }
 }
