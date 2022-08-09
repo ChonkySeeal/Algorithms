@@ -10,17 +10,50 @@ public class RadixSort {
         return mx;
     }
 
-    static void countSort(int arr[], int n, int exp) {
-        int output[] = new int[n];
-        int i;
-        int count[] = new int[10];
-        Arrays.fill(count, 0);
+    static void countSort(int arr[], int n, int place) {
+        int[] output = new int[n + 1];
+        int max = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+        }
 
-        for (i = 0; i < n; i++)
-            count[(arr[i] / exp) % 10]++;
+        int[] count = new int[max + 1];
+
+        for (int i = 0; i < max; i++)
+            count[i] = 0;
+
+        for (int i = 0; i < n; i++) {
+            count[(arr[i] / place) % 10]++;
+        }
+
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / place) % 10] - 1] = arr[i];
+            count[(arr[i] / place) % 10]--;
+        }
+
+        for (int i = 0; i < n; i++)
+            arr[i] = output[i];
+
+    }
+
+    void radixSort(int arr[], int size) {
+        int max = getMax(arr, size);
+
+        for (int place = 1; max / place > 0; place *= 10)
+            countSort(arr, size, place);
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        int[] data = { 121, 432, 564, 23, 1, 45, 788 };
+        int size = data.length;
+        RadixSort rs = new RadixSort();
+        rs.radixSort(data, size);
+        System.out.println("Sorted Array in Ascending Order: ");
+        System.out.println(Arrays.toString(data));
     }
 }
