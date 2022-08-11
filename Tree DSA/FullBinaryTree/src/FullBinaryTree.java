@@ -5,11 +5,11 @@ public class FullBinaryTree {
     boolean isFullBinaryTree(Node node) {
         if (node == null)
             return true;
-        if (node.left == null && node.right == null)
+        if (node.right == null && node.left == null)
             return true;
-
-        if (node.left != null && node.right != null)
-            return isFullBinaryTree(node.left) && isFullBinaryTree(node.right);
+        if (node.right != null && node.left != null) {
+            return isFullBinaryTree(node.right) && isFullBinaryTree(node.left);
+        }
         return false;
     }
 
