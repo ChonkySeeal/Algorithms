@@ -22,14 +22,15 @@ public class SelectionSort {
     }
 
     public void selectionSort() {
-        int i, j, min;
-        for (i = 0; i < eElems - 1; i++) {
-            min = i;
-            for (j = i; i < eElems; j++) {
-                if (a[min] > a[j])
+        for (int i = 0; i < eElems - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < eElems; j++) {
+                if (min < a[j])
                     min = j;
-                swap(min, j);
             }
+            long temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
         }
     }
 
