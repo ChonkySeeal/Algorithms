@@ -1,5 +1,7 @@
 package Test;
 
+import java.time.LocalDate;
+
 public class Person {
     private String name;
 
@@ -12,8 +14,8 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        Person myobj = new Person();
-        myobj.setName("Johnson");
-        System.out.println(myobj.getName());
+        LocalDate date = LocalDate.now();
+        System.out.println(date);
+
     }
 }

@@ -34,12 +34,6 @@ public class SelectionSort {
         }
     }
 
-    private void swap(int one, int two) {
-        long temp = a[one];
-        a[one] = a[two];
-        a[two] = temp;
-    }
-
     public static void main(String[] args) throws Exception {
         SelectionSort ss = new SelectionSort(5);
         ss.insert(44);
