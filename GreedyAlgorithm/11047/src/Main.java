@@ -13,9 +13,9 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }
         for (int i = N - 1; i >= 0; i--) {
-            while (target - arr[i] >= 0) {
-                target -= arr[i];
-                num++;
+            if (target >= arr[i]) {
+                num += target / arr[i];
+                target %= arr[i];
             }
         }
 
