@@ -1,3 +1,4 @@
+
 public class Main {
     public static void main(String[] args) throws Exception {
         int[] arrayB = { 6, 55, 32, 15, 45 };

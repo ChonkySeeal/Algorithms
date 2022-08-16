@@ -1,3 +1,5 @@
+package Sorting.Bubblesort.src;
+
 public class BubbleSort {
     private long[] a;
     private int eElems;
