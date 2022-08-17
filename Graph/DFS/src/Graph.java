@@ -1,32 +1,34 @@
 import java.util.*;
 
 public class Graph {
-
-    private LinkedList<Integer> adjLists[];
-    private boolean[] visited;
+    LinkedList<Integer>[] graph;
+    boolean[] v;
 
     Graph(int vertices) {
-        adjLists = new LinkedList[vertices];
-        visited = new boolean[vertices];
-
+        graph = new LinkedList[vertices];
         for (int i = 0; i < vertices; i++) {
-            adjLists[i] = new LinkedList<Integer>();
+            graph[i] = new LinkedList<>();
         }
+        v = new boolean[vertices];
     }
 
-    void addEdge(int src, int dest) {
-        adjLists[src].add(dest);
+    void addEdge(int v, int u) {
+        graph[v].add(u);
+
     }
 
     void DFS(int vertex) {
-        visited[vertex] = true;
+        v[vertex] = true;
         System.out.print(vertex + " ");
-        Iterator<Integer> ite = adjLists[vertex].listIterator();
+        Iterator<Integer> ite = graph[vertex].listIterator();
         while (ite.hasNext()) {
-            int adj = ite.next();
-            if (!visited[adj])
-                DFS(adj);
+            int next = ite.next();
+            if (!v[next]) {
+                DFS(next);
+            }
+
         }
+
     }
 
     public static void main(String[] args) throws Exception {

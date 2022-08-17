@@ -8,25 +8,24 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static LinkedList<Integer>[] graph;
-    static boolean[] b;
-    static int count = 0;
-    static int[] ans;
+    LinkedList<Integer>[] graph;
+    boolean[] b;
+    int count = 0;
+    int[] ans;
 
-    static void DFS(int vertex) {
+    void DFS(int vertex) {
         b[vertex] = true;
         ans[vertex] = ++count;
 
-        Iterator<Integer> ite = graph[vertex].listIterator();
-        while (ite.hasNext()) {
-            int nextV = ite.next();
+        for (int next : graph[vertex]) {
+            int nextV = next;
             if (!b[nextV]) {
                 DFS(nextV);
             }
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    void solution() throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         StringBuilder sb = new StringBuilder();
@@ -54,6 +53,9 @@ public class Main {
         for (int i = 0; i < N; i++)
             sb.append(ans[i]).append('\n');
         System.out.println(sb);
+    }
 
+    public static void main(String[] args) throws Exception {
+        new Main().solution();
     }
 }
