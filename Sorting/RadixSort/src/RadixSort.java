@@ -16,14 +16,15 @@ public class RadixSort {
         int[] output = new int[n + 1];
         int max = arr[0];
         for (int i = 1; i < n; i++) {
-            if (arr[i] > max)
+            if (arr[i] > max) {
                 max = arr[i];
+            }
         }
 
-        int[] count = new int[max + 1];
-
-        for (int i = 0; i < max; i++)
+        int[] count = new int[10];
+        for (int i = 0; i < 10; i++) {
             count[i] = 0;
+        }
 
         for (int i = 0; i < n; i++) {
             count[(arr[i] / place) % 10]++;
@@ -37,9 +38,9 @@ public class RadixSort {
             output[count[(arr[i] / place) % 10] - 1] = arr[i];
             count[(arr[i] / place) % 10]--;
         }
-
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             arr[i] = output[i];
+        }
 
     }
 
