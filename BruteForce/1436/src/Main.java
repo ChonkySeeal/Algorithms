@@ -29,15 +29,8 @@ public class Main {
         int num = 0;
 
         while (true) {
-            if (((prev % 10000) / 10 == 666 && prev % 10 != 6)) {
-                for (int i = 0; i < 1000; i++) {
-                    if (count == N) {
-                        System.out.println(prev * 1000 + num);
-                        return;
-                    }
-                }
-                prev++;
-            } else if (prev % 1000 == 666) {
+
+            if (prev % 1000 == 666) {
                 num = 0;
                 for (int i = 0; i < 1000; i++) {
                     if (count == N) {
@@ -59,27 +52,28 @@ public class Main {
                     num++;
                 }
                 prev++;
-            }
-
-            else if (prev % 10 == 6) {
+            } else if (prev % 10 == 6) {
                 num = 660;
                 for (int i = 0; i < 10; i++) {
                     if (count == N) {
                         System.out.println(prev * 1000 + num);
                         return;
                     }
+
                     count++;
                     num++;
                 }
                 prev++;
-            } else {
+            }
+
+            else {
                 num = 666;
                 if (count == N) {
                     System.out.println(prev * 1000 + num);
                     return;
                 }
-                count++;
                 prev++;
+                count++;
             }
         }
 
